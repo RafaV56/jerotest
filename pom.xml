@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>tk.jeroapp</groupId>
 	<artifactId>jerotest</artifactId>
-	<version>1.0.0 SNAPSHOT</version>
+	<version>0.0.1</version>
 	<name>jerotest</name>
 	<description>aplicacion heroku para jero app</description>
 
