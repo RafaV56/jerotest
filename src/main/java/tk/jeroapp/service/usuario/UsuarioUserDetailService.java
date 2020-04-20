@@ -1,4 +1,4 @@
-package tk.jeroapp.servicio.usuario;
+package tk.jeroapp.service.usuario;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,8 +14,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import tk.jeroapp.dao.usuario.IUsuarioDao;
-import tk.jeroapp.entidades.Rol;
-import tk.jeroapp.entidades.Usuario;
+import tk.jeroapp.entitys.Rol;
+import tk.jeroapp.entitys.Usuario;
 
 @Service("usuarioServiceImp")
 public class UsuarioUserDetailService implements UserDetailsService{

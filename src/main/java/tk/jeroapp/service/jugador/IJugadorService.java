@@ -1,8 +1,8 @@
-package tk.jeroapp.servicio.jugador;
+package tk.jeroapp.service.jugador;
 
 import java.util.List;
 
-import tk.jeroapp.entidades.Jugador;
+import tk.jeroapp.entitys.Jugador;
 
 
 

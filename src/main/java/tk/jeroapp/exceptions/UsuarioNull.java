@@ -1,4 +1,4 @@
-package tk.jeroapp.excepciones;
+package tk.jeroapp.exceptions;
 
 public class UsuarioNull extends RuntimeException {
 	

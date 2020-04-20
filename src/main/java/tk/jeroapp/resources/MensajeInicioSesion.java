@@ -1,4 +1,4 @@
-package tk.jeroapp.recursos;
+package tk.jeroapp.resources;
 
 import java.io.IOException;
 

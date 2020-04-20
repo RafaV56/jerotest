@@ -1,11 +1,11 @@
-package tk.jeroapp.validadores;
+package tk.jeroapp.validators;
 
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
-import tk.jeroapp.entidades.Jugador;
-import tk.jeroapp.recursos.Validadores;
+import tk.jeroapp.entitys.Jugador;
+import tk.jeroapp.resources.Validadores;
 
 @Component
 public class JugadorValidador implements Validator {

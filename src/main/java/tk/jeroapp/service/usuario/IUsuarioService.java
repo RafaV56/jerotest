@@ -1,8 +1,8 @@
-package tk.jeroapp.servicio.usuario;
+package tk.jeroapp.service.usuario;
 
 import java.util.List;
 
-import tk.jeroapp.entidades.Usuario;
+import tk.jeroapp.entitys.Usuario;
 
 public interface IUsuarioService {
 

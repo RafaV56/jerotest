@@ -1,4 +1,4 @@
-package tk.jeroapp.controladores;
+package tk.jeroapp.controllers;
 import java.security.Principal;
 import java.util.Locale;
 
@@ -21,10 +21,10 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import tk.jeroapp.entidades.Usuario;
-import tk.jeroapp.servicio.jugador.JugadorServiceImpl;
-import tk.jeroapp.servicio.usuario.UsuarioServiceImpl;
-import tk.jeroapp.validadores.UsuarioValidador;
+import tk.jeroapp.entitys.Usuario;
+import tk.jeroapp.service.jugador.JugadorServiceImpl;
+import tk.jeroapp.service.usuario.UsuarioServiceImpl;
+import tk.jeroapp.validators.UsuarioValidador;
 
 /**
  * Controlador para el usuario 26/3/20
@@ -61,13 +61,11 @@ public class UsuarioController {
 	
 	@Secured({ "ROLE_ADMIN" })
 	@GetMapping("editarUsuario/{id}")
-	public String editarUsuario(@PathVariable(name = "id", required = true) Long id, RedirectAttributes flash,Locale locale) {
-		
-		//seguir aqui BORRAR*******************************************************************
-		
+	public String editarUsuario(@PathVariable(name = "id", required = true) Long id, RedirectAttributes flash,Locale locale,Model model) {
 		Usuario usuario = usuarioService.buscarUno(id);
-		//flash.addFlashAttribute("exito",  mensajesIdioma.getMessage("text.usuario.borrado", null, locale).concat(" <strong>ID  ' "+id+" ' </strong>"));
-		return "redirect:/usuario";
+		model.addAttribute("usuario", usuario);
+		return "usuario/usuariosEditarAdmin";
+		//Seguir aqui---------------------------------------************************
 	}
 
 	/**

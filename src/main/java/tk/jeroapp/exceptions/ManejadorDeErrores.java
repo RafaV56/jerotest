@@ -1,4 +1,4 @@
-package tk.jeroapp.excepciones;
+package tk.jeroapp.exceptions;
 
 import java.util.Locale;
 
@@ -41,7 +41,7 @@ public class ManejadorDeErrores {
 	@ExceptionHandler({Exception.class})
 	public String exceptionHandler(HttpServletRequest request,Exception ex,Model model,Locale locale){
 		model.addAttribute("status",500);
-		//model.addAttribute("cuidado", mensajesIdioma.getMessage("error.general.aplicacion", null, locale));
+		model.addAttribute("info", mensajesIdioma.getMessage("error.general.aplicacion", null, locale));
 		model.addAttribute("cuidado",ex.getClass().toString());
 		return "error";
 	}

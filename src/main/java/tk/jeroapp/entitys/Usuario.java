@@ -1,4 +1,4 @@
-package tk.jeroapp.entidades;
+package tk.jeroapp.entitys;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -15,9 +15,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import org.springframework.stereotype.Component;
-
-@Component
 @Entity
 @Table(name = "usuarios")
 public class Usuario implements Serializable {

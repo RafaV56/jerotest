@@ -1,4 +1,4 @@
-package tk.jeroapp.servicio.usuario;
+package tk.jeroapp.service.usuario;
 
 import java.util.List;
 
@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import tk.jeroapp.dao.usuario.IRolDao;
-import tk.jeroapp.entidades.Rol;
+import tk.jeroapp.entitys.Rol;
 
 @Service
 public class RolServiceImpl implements IRolService {

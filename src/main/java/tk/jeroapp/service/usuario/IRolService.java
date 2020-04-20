@@ -1,8 +1,8 @@
-package tk.jeroapp.servicio.usuario;
+package tk.jeroapp.service.usuario;
 
 import java.util.List;
 
-import tk.jeroapp.entidades.Rol;
+import tk.jeroapp.entitys.Rol;
 
 public interface IRolService {
 

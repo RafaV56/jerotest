@@ -1,13 +1,13 @@
-package tk.jeroapp.validadores;
+package tk.jeroapp.validators;
 
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
-import tk.jeroapp.entidades.Usuario;
-import tk.jeroapp.excepciones.UsuarioNull;
-import tk.jeroapp.recursos.Validadores;
-import tk.jeroapp.servicio.usuario.UsuarioServiceImpl;
+import tk.jeroapp.entitys.Usuario;
+import tk.jeroapp.exceptions.UsuarioNull;
+import tk.jeroapp.resources.Validadores;
+import tk.jeroapp.service.usuario.UsuarioServiceImpl;
 
 @Component
 public class UsuarioValidador implements Validator {

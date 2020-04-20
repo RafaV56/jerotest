@@ -1,4 +1,4 @@
-package tk.jeroapp.entidades;
+package tk.jeroapp.entitys;
 
 import java.io.Serializable;
 
@@ -12,7 +12,7 @@ import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
-import tk.jeroapp.recursos.Fecha;
+import tk.jeroapp.resources.Fecha;
 
 
 @Entity

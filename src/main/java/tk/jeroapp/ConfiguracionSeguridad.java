@@ -12,8 +12,8 @@ import org.springframework.security.core.userdetails.User.UserBuilder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-import tk.jeroapp.recursos.MensajeInicioSesion;
-import tk.jeroapp.servicio.usuario.UsuarioUserDetailService;
+import tk.jeroapp.resources.MensajeInicioSesion;
+import tk.jeroapp.service.usuario.UsuarioUserDetailService;
 
 /**
  * Clase para configurar la seguridad de la aplicación

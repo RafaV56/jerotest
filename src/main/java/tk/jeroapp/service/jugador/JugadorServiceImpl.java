@@ -1,4 +1,4 @@
-package tk.jeroapp.servicio.jugador;
+package tk.jeroapp.service.jugador;
 
 import java.util.List;
 
@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import tk.jeroapp.dao.usuario.IJugadorDao;
-import tk.jeroapp.entidades.Jugador;
+import tk.jeroapp.entitys.Jugador;
 
 @Service
 public class JugadorServiceImpl implements IJugadorService {

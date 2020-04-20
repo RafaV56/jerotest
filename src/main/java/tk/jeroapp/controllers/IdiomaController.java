@@ -1,4 +1,4 @@
-package tk.jeroapp.controladores;
+package tk.jeroapp.controllers;
 
 import javax.servlet.http.HttpServletRequest;
 

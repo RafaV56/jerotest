@@ -1,23 +1,24 @@
 package tk.jeroapp.entidades;
 
 import static org.junit.jupiter.api.Assertions.*;
-
-import org.apache.logging.log4j.LogManager;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.test.context.ActiveProfiles;
 
-@SpringBootTest
+import tk.jeroapp.entitys.Usuario;
+
+
+@ActiveProfiles("test")
+@SpringBootTest()
 class UsuarioTestSpring {
 
-	@Autowired
-	private Usuario usuario;
+	@MockBean
+	private Usuario mock;
 	
 	@Test
 	void test() {
-		LogManager.getLogger(this.getClass())
-        .debug("--------------------------- Test usuario Spring---------------------------");
-		assertNotNull(usuario);
+		
 	}
 
 }

@@ -1,4 +1,4 @@
-package tk.jeroapp.entidades;
+package tk.jeroapp.entitys;
 
 import java.io.Serializable;
 
