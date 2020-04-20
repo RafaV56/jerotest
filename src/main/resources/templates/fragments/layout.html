@@ -1,14 +1,14 @@
 <!doctype html>
-<html xlmns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
-<head th:fragment="head">
-<title>Jero App web</title>
+<html th:fragment="layout (template, menu)" xlmns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <title>Jero App web</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-<link rel="stylesheet" type="text/css" href="/stylesheets/main.css" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/main.css" />
 </head>
 
 <body class="bg-dark text-white">
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark" th:fragment="nav">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" th:href="@{/}" th:utext="#{titulo.menu.principal}">Inicio</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -66,12 +66,28 @@
     
   </div>
 </nav>
+	<!-- Mesajes de alertar por acciones como crear, borrar etc. -->
+<div class="w3-margin">
+<div class="alert alert-success text-center" th:if="${exito != null}" th:utext="${exito}"></div>
+<div class="alert alert-danger text-center" th:if="${peligro != null}" th:utext="${peligro}"></div>
+<div class="alert alert-warning text-center" th:if="${cuidado != null}" th:utext="${cuidado}"></div>
+<div class="alert alert-info text-center" th:if="${informacion != null}" th:utext="${informacion}"></div>
+</div>
+    <div th:replace="${template}"/>
+    <footer class="text-center alert alert-dark">
+    <!-- Está el usuaurio autorizado, si es admin mostrar admin, si no, el nombre del usuario -->
+    <p>Bienvenido: <span sec:authorize="isAuthenticated()">
+    <span sec:authorize="hasRole('ADMIN')">
+    Administrador
+    </span>
+    <span sec:authorize="!hasRole('ADMIN')" sec:authentication="name">
+    </span>
+    <!-- Si no está autorizado motrar no -->
+    </span><span sec:authorize="!isAuthenticated()"> <a class="text-info" th:href="@{/crearUsuario}" th:text="#{titulo.usuarioCrear}" target="">Crear Usuario</a> </span> <span th:text="#{pie.creado}">Creado por Rafael Vel&aacute;squez</span> 22/3/2020 &copy; <a href="http://ejemplosdecodigo.ddns.net" target="_blank" class="text-info">ejemplosdecodigo.ddns.net</a>
+    </p>
+    </footer>
 
-
-<footer th:fragment="footer">
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-</footer>
 </body>
-</html>

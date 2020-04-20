@@ -1,9 +1,19 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="layouts/layout :: head"></head>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body},'index')}">
+
 <body>
-<nav th:replace="layouts/layout :: nav"></nav>
-<h1 class="alert alert-info">Hola</h1>
-<footer th:replace="layouts/layout :: footer"></footer>
+
+<div class="jumbotron text-center">
+  <div class="container">
+    <a href="/" class="lang-logo">
+      <img src="/img/lang-logo.png">
+    </a>
+    <h1>Jero App web</h1>
+    <p>Plataforma donde puedes llevar tus progresos deportivos</p>
+    <a type="button" class="btn btn-lg btn-default" href="https://devcenter.heroku.com/articles/getting-started-with-java"><span class="glyphicon glyphicon-flash"></span> Getting Started with Java</a>
+    <a type="button" class="btn btn-lg btn-primary" href="https://github.com/heroku/java-getting-started"><span class="glyphicon glyphicon-download"></span> Source on GitHub</a>
+  </div>
+</div>
+
 </body>
 </html>

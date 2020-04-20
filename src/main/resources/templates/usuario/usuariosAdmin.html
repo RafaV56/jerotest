@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body},'index')}">
+<body>
+	<section class="">
+
+		<div class="card">
+			<div class="card-header text-dark text-center">
+				<h3 th:text="#{titulo.usuarioIndex}" class="text-center"></h3>
+			</div>
+			<div class="card-body">
+				<table class="table table-secondary table-hover">
+					<thead>
+						<tr class="bg-secondary text-white">
+							<th>id</th>
+							<th th:text="#{text.usuario.alias}">Alias</th>
+							<th th:text="#{text.usuario.nombreDeUsaurio}">Nombre de usuario</th>
+							<th th:text="#{text.usuario.apellidos}">Apellidos</th>
+							<th th:text="#{text.usuario.activo}">Activo</th>
+							<th th:text="#{text.usuario.roles}">Roles</th>
+							<th th:text="#{text.usuario.borrar}">Borrar</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="usuario : ${usuarios}">
+							<td th:text="${usuario.id}"></td>
+							<td><a th:href="@{/editarUsuario}+'/'+${usuario.id}" 
+							class="btn btn-info btn-sm text-white"
+							th:text="${usuario.alias}"></a></td>
+							<td th:text="${usuario.nombreDeUsuario}"></td>
+							<td th:text="${usuario.apellidos}"></td>
+							<td th:if="${usuario.activo}==true" th:text="#{text.usuario.activo.si}"></td>
+							<td th:if="${usuario.activo}==false" th:text="#{text.usuario.activo.no}"></td>
+							<td th:text="${usuario.roles}"></td>
+							<td><a th:href="@{borrar/}+${usuario.id}" 
+							class="btn btn-light btn-sm text-danger"
+							th:text="#{text.usuario.borrar}"
+							onclick="return confirm('OK');"></a></td>
+						</tr>
+
+					</tbody>
+				</table>
+				
+			<div class="card-header text-dark text-center">
+				<h3 th:text="#{titulo.jugadores}" class="text-center"></h3>
+			</div>
+				<table class="table table-dark table-hover">
+					<thead>
+						<tr class="bg-secondary">
+							<th>id</th>
+							<th th:text="#{text.usuario.nombre}">Nombre</th>
+							<th th:text="#{text.usuario.peso}">Peso</th>
+							<th th:text="#{text.usuario.talla}">Talla</th>
+							<th th:text="#{text.usuario.nacimiento}">Nacimiento</th>
+							<th th:text="#{text.usuario.edad}">Edad</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="jugador : ${jugadores}">
+							<td th:text="${jugador.id}"></td>
+							<td th:text="${jugador.nombre}"></td>
+							<td th:text="${jugador.peso}"></td>
+							<td th:text="${jugador.talla}"></td>
+							<td th:text="${jugador.verFechaNacimiento()}"></td>
+							<td th:text="${jugador.edad()}"></td>
+						</tr>
+
+					</tbody>
+				</table>
+			</div>
+
+		</div>
+	</section>
+	
+</body>
+</html>

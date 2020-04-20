@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body},'error')}">
+
+  <body>
+   
+    <div class="card bg-danger text-white">
+  <div class="card-body">
+     <h2 class="card-title" th:text="#{titulo.paginaerror}">Error en la petición</h2>
+    <div th:if="${status==403}">
+     <h6 class="card-subtitle text-white" th:text="#{error.403}">No puedes acceder a este recurso</h6>
+   </div>
+   <div th:if="${status==404}">
+     <h6><span class="card-subtitle text-white" th:text="#{error.404}">No se encontró este recurso: </span> <span th:text="${path}" class="text-white"></span></h6>
+   </div>
+   <div th:if="${status==500}">
+     <h6><span class="card-subtitle text-white" th:text="#{error.500}">Error interno: </span> <span th:text="${path}" class="text-white"></span></h6>
+   </div>
+   <div th:if="${status==409}">
+     <h6><span class="card-subtitle text-white" th:text="#{error.409}">Conflicto en la aplicación: </span> <span th:text="${path}" class="text-white"></span></h6>
+   </div>
+   <div th:if="${status==401}">
+     <h6><span class="card-subtitle text-white" th:text="#{error.401}">No tiene autorización para el recurso </span> <span th:text="${path}" class="text-white"></span></h6>
+   </div>
+    <p class="card-text"></p>
+    <a th:href="@{/}" class="card-link text-white btn btn-dark" th:utext="#{titulo.menu.principal}">Ir a la página principal</a>
+  </div>
+  </div>
+<!-- <table class="table table-hover text-white"> -->
+<!--     <tr> -->
+<!--         <td>Date</td> -->
+<!--         <td th:text="${timestamp}"/> -->
+<!--     </tr> -->
+<!--     <tr> -->
+<!--         <td>Path</td> -->
+<!--         <td th:text="${path}"/> -->
+<!--     </tr> -->
+<!--     <tr> -->
+<!--         <td>Error</td> -->
+<!--         <td th:text="${error}"/> -->
+<!--     </tr> -->
+<!--     <tr> -->
+<!--         <td>Status</td> -->
+       
+<!--     </tr> -->
+<!--     <tr> -->
+<!--         <td>Message</td> -->
+<!--         <td th:text="${message}"/> -->
+<!--     </tr> -->
+<!--     <tr> -->
+<!--         <td>Exception</td> -->
+<!--         <td th:text="${exception}"/> -->
+<!--     </tr> -->
+<!--     <tr> -->
+<!--         <td>Trace</td> -->
+<!--         <td> -->
+<!--             <pre th:text="${trace}"></pre> -->
+<!--         </td> -->
+<!--     </tr> -->
+<!-- </table> -->
+  </body>
+
+</html>

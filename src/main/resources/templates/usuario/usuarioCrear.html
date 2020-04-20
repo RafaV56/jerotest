@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{fragments/layout :: layout (~{::body},'index')}">
+<body>
+	<h2 class="text-center"></h2>
+	<h3 class="text-center "></h3>
+
+	<section class="">
+		<div class="card">
+			<div class="card-header text-dark text-center">
+				<h3 th:text="#{titulo.usuarioCrear}" class="text-center"></h3>
+			</div>
+			<div class="card-body">
+				<form method="post" th:action="@{/crearUsuario}" th:object="${usuario}">
+				
+<div class="form-row">
+
+	<!-- Campo nombre de usuario -------------------------------------------------------------------------------- -->
+    <div class="form-group col-md-6">
+      <strong><label for="nombreDeUsuario" class="text-dark" th:text="#{text.usuario.nombreDeUsaurio}+' *'">Nombre*</label></strong>
+      <input type="text" class="form-control" id="nombreDeUsuario" th:field="*{nombreDeUsuario}"aria-describedby="nombreDeUsuario" maxlength="60" required="required">
+      
+      <!-- Errores en usuario -->
+      
+      <div th:if="${#fields.hasErrors('nombreDeUsuario')}" class="mt-1">
+			<small id="nombreDeUsuarioError" th:errors="*{nombreDeUsuario}" class="badge badge-warning"></small>
+	 	</div>
+    </div>
+    <!------------------------------------------------------------------------------------------------ -->
+    <!-- Campo Apellido -------------------------------------------------------------------------------- -->
+    <div class="form-group col-md-6">
+      <strong><label for="apellidos" class="text-dark" th:text="#{text.usuario.apellidos}+' *'">Apellidos*</label></strong>
+      <input type="text" class="form-control" id="apellidos" th:field="*{apellidos}"aria-describedby="apellidos" maxlength="60" required="required">
+      
+      <!-- Errores en apellido -->
+      
+      <div th:if="${#fields.hasErrors('apellidos')}" class="mt-1">
+			<small id="apellidosError" th:errors="*{apellidos}" class="badge badge-warning"></small>
+	 	</div>
+    </div>
+    <!------------------------------------------------------------------------------------------------ -->
+    
+</div> <!-- Fin del row -->
+
+<div class="form-row">
+
+	<!-- Campo Alias-------------------------------------------------------------------------------- -->
+    <div class="form-group col-md-6">
+      <strong><label for="alias" class="text-dark" th:text="#{text.usuario.alias}+' *'">Alias*</label></strong>
+      <input type="text" class="form-control" id="alias" th:field="*{alias}"aria-describedby="alias" maxlength="60" required="required">
+      
+      <!-- Errores en nombre -->
+      
+      <div th:if="${#fields.hasErrors('alias')}" class="mt-1">
+			<small id="aliasError" th:errors="*{alias}" class="badge badge-warning"></small>
+	 	</div>
+    </div>
+    <!------------------------------------------------------------------------------------------------ -->
+    <!-- Campo Passoword -------------------------------------------------------------------------------- -->
+    <div class="form-group col-md-6">
+      <strong><label for="password" class="text-dark" th:text="#{text.usuario.password}+' *'">Contraseña*</label></strong>
+      <input type="password" class="form-control" id="password" th:field="*{password}"aria-describedby="apellidos" maxlength="60" required="required">
+      
+      <!-- Errores en password -->
+      
+      <div th:if="${#fields.hasErrors('password')}" class="mt-1">
+			<small id="passwordError" th:errors="*{password}" class="badge badge-warning"></small>
+	 	</div>
+    </div>
+    <!------------------------------------------------------------------------------------------------ -->
+</div> <!-- Fin del row -->
+
+		<button type="submit" class="btn btn-primary" th:text="#{crear}">Crear</button>
+</form>
+					
+	</div><!-- card body -->
+</div><!-- card -->
+	</section>
+</body>
+</html>
