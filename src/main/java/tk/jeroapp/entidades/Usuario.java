@@ -15,6 +15,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.springframework.stereotype.Component;
+
+@Component
 @Entity
 @Table(name = "usuarios")
 public class Usuario implements Serializable {
@@ -58,7 +61,7 @@ public class Usuario implements Serializable {
 	}
 
 	public String getNombreDeUsuario() {
-		return nombreDeUsuario.toUpperCase();
+		return nombreDeUsuario;
 	}
 
 	public void setNombreDeUsuario(String nombreDeUsuario) {
