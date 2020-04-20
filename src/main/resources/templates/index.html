@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layouts/layout :: head"></head>
 <body>
-<h1>Spring</h1>
+<nav th:replace="layouts/layout :: nav"></nav>
+<h1 class="alert alert-info">Hola</h1>
+<footer th:replace="layouts/layout :: footer"></footer>
 </body>
 </html>
