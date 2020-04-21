@@ -15,6 +15,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.sun.istack.NotNull;
+
 @Entity
 @Table(name = "usuarios")
 public class Usuario implements Serializable {
@@ -66,7 +68,7 @@ public class Usuario implements Serializable {
 	}
 
 	public String getApellidos() {
-		return apellidos.toUpperCase();
+		return apellidos;
 	}
 
 	public void setApellidos(String apellidos) {

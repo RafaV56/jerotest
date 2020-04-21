@@ -14,6 +14,14 @@ import javax.persistence.UniqueConstraint;
 uniqueConstraints = { @UniqueConstraint(columnNames = { "usuario_id", "nombre" }) 
 })
 public class Rol implements Serializable {
+	
+	public static final String USER;
+	public static final String ADMIN;
+	
+	static {
+		USER="ROLE_USER";
+		ADMIN="ROLE_ADMIN";
+	}
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -40,6 +48,12 @@ public class Rol implements Serializable {
 	@Override
 	public String toString() {
 		return nombre;
+	}
+	public Rol() {
+	}
+
+	public Rol(String nombre) {
+		this.nombre = nombre;
 	}
 
 	private static final long serialVersionUID = 1L;

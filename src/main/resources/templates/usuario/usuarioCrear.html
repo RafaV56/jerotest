@@ -69,6 +69,36 @@
     </div>
     <!------------------------------------------------------------------------------------------------ -->
 </div> <!-- Fin del row -->
+<div class="form-row"> <!-- row -->
+  
+   <!-- Campo Roles-------------------------------------------------------------------------------- -->
+    <div class="form-group col-md-6">
+      <strong><label for="roles" class="text-dark" th:text="#{text.usuario.rol}+' *'">Roles*</label></strong>
+      <div th:each="rol : *{roles}">
+      <input type="text" class="form-control" th:name="${rol.nombre}" th:value="${rol.nombre}=='ROLE_USER'?#{text.usuario.rol.usuario}:${rol.nombre}" disabled="disabled">
+      </div>text.usuario.rol
+      
+      <!-- Errores en usuario -->
+      
+      <div th:if="${#fields.hasErrors('roles')}" class="mt-1">
+			<small id="rolesError" th:errors="*{roles}" class="badge badge-warning"></small>
+	 	</div>
+    </div>
+    <!------------------------------------------------------------------------------------------------ -->
+    <!-- Campo Repetir Passoword -------------------------------------------------------------------------------- -->
+    <div class="form-group col-md-6">
+      <strong><label for="repetirPassword" class="text-dark" th:text="#{text.usuario.repetirpassword}+' *'">Repetir la Contraseña*</label></strong>
+      <input type="text" class="form-control" id="repetirPassword" name="repetirPassword" aria-describedby="repetirPassword" maxlength="60" required="required">
+      
+      <!-- Errores en password -->
+      
+      <div th:if="${#fields.hasErrors('password')}" class="mt-1">
+			<small id="passwordError" th:errors="*{password}" class="badge badge-warning"></small>
+	 	</div>
+    </div>
+    <!------------------------------------------------------------------------------------------------ -->
+    
+  </div> <!-- Fin del row -->  
 
 		<button type="submit" class="btn btn-primary" th:text="#{crear}">Crear</button>
 </form>

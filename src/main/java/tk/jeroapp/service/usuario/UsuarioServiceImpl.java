@@ -31,8 +31,6 @@ public class UsuarioServiceImpl implements IUsuarioService {
 	public Usuario guardar(Usuario usuario) {	
 		//tomamos el usuario y codificamos su con contraseña
 		usuario.setPassword(encoder.encode(usuario.getPassword()));
-		//Insertamos el rol user
-		usuario.setRol("ROLE_USER");	
 		return usuarioDao.save(usuario);
 
 	}

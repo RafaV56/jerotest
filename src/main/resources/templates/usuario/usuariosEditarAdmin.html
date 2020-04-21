@@ -27,7 +27,14 @@
     <div class="form-group col-md-11">
       <strong><label for="roles" class="text-dark" th:text="#{text.usuario.rol}+' *'">Roles*</label></strong>
       <div th:each="rol : *{roles}">
-      <input type="text" class="form-control mt-1" th:name="${rol}" th:value="${rol}">
+      <div th:if="${rol.nombre}=='ROLE_USER'">
+      <input type="text" class="form-control mb-1" th:name="${rol}" th:value="${rol.nombre}=='ROLE_USER'?#{text.usuario.rol.usuario}:${rol.nombre}">
+      </div>
+      
+      <div th:if="${rol.nombre}=='ROLE_ADMIN'">
+      <input type="text" class="form-control mb-1" th:name="${rol}" th:value="${rol.nombre}=='ROLE_ADMIN'?#{text.usuario.rol.admin}:${rol.nombre}">
+      </div>
+      
       </div>
       
       <!-- Errores en usuario -->

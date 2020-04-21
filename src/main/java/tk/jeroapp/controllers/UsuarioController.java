@@ -1,5 +1,8 @@
 package tk.jeroapp.controllers;
 import java.security.Principal;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
@@ -14,13 +17,18 @@ import org.springframework.security.web.servletapi.SecurityContextHolderAwareReq
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.InitBinder;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import tk.jeroapp.editors.UsuarioPropertyEditor;
+import tk.jeroapp.entitys.Rol;
 import tk.jeroapp.entitys.Usuario;
 import tk.jeroapp.service.jugador.JugadorServiceImpl;
 import tk.jeroapp.service.usuario.UsuarioServiceImpl;
@@ -99,10 +107,10 @@ public class UsuarioController {
 		}
 		Usuario usuario = new Usuario();
 		usuario.setActivo(true);
-		usuario.setAlias("alias");
-		usuario.setNombreDeUsuario("nombre");
-		usuario.setApellidos("apellido");
-		usuario.setPassword("password");
+		usuario.setAlias(mensajesIdioma.getMessage("text.usuario.alias", null, locale));
+		usuario.setNombreDeUsuario(mensajesIdioma.getMessage("text.usuario.nombre", null, locale));
+		usuario.setApellidos(mensajesIdioma.getMessage("text.usuario.apellidos", null, locale));
+		usuario.setRol(Rol.USER);
 		model.addAttribute("usuario", usuario);
 		return "usuario/usuarioCrear";
 	}
@@ -118,6 +126,15 @@ public class UsuarioController {
 
 	@Autowired
 	private UsuarioServiceImpl usuarioServiceImpl;
+	
+//	@InitBinder
+//	public void initBinder(WebDataBinder binder) {
+//		
+//		binder.registerCustomEditor(Rol.class, "nombre", usuarioProperiy);		
+//	}
+//	
+//	@Autowired
+//	private UsuarioPropertyEditor usuarioProperiy;
 	
 
 	@PostMapping("/crearUsuario")
