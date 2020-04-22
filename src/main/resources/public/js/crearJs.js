@@ -22,17 +22,12 @@ $(document).ready(function(e) {
  });
 
 function nombre(){
-	alert('hola');
 	
-		 if($('#nombreDeUsuario').val().length>0 && $('#nombre').val().length<50){
+		 if($('#nombreDeUsuario').val().length>2 && $('#nombreDeUsuario').val().length<=60){
 			$('#nombreDeUsuario').addClass('border border-success');
 			$('#nombreDeUsuario').removeClass('border border-danger');
-			$('#sNombre').removeClass('glyphicon glyphicon-remove form-control-feedback text-danger');
-			$('#sNombre').addClass('glyphicon glyphicon-ok form-control-feedback text-success');
 		 }else{
 			$('#nombreDeUsuario').removeClass('border border-success');
-			$('#nombreDeUsuario').addClass('border border-danger');
-			$('#sNombre').removeClass('glyphicon glyphicon-ok form-control-feedback text-success');
-			$('#sNombre').addClass('glyphicon glyphicon-remove form-control-feedback text-danger');	
+			$('#nombreDeUsuario').addClass('border border-danger');	
 		 }
 }
