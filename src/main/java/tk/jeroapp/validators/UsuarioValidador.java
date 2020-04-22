@@ -7,8 +7,6 @@ import org.springframework.validation.Validator;
 import tk.jeroapp.entitys.Usuario;
 import tk.jeroapp.exceptions.UsuarioNull;
 import tk.jeroapp.resources.Validadores;
-import tk.jeroapp.service.usuario.UsuarioServiceImpl;
-
 @Component
 public class UsuarioValidador implements Validator {
 

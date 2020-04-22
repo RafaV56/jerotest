@@ -18,7 +18,7 @@ class UsuarioTestSpring {
 	
 	@Test
 	void test() {
-		
+		//fail("No implementado");
 	}
 
 }

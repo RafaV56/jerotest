@@ -8,12 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
-import org.springframework.http.HttpStatus;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 
 
@@ -29,7 +27,14 @@ public class ManejadorDeErrores {
 	@Autowired
 	private MessageSource mensajesIdioma;
 	
-	
+	/**
+	 * El usuario es nulo a la hora de validar
+	 * @param request
+	 * @param ex
+	 * @param model
+	 * @param locale
+	 * @return
+	 */
 	@ExceptionHandler({UsuarioNull.class})
     public String exceptiosControladas(HttpServletRequest request,Exception ex,Model model,Locale locale){
 		model.addAttribute("status",404);
@@ -78,8 +83,6 @@ public class ManejadorDeErrores {
 	 */
 	@ExceptionHandler({AccessDeniedException.class})
 	public String sinAutorizacion(HttpServletRequest request,Exception ex,Model model,Locale locale){
-		//para el botón 
-		String volver=mensajesIdioma.getMessage("text.volver", null, locale);
 		//Ultima url que visitó el usuario para insertarla en el path
 		String url=request.getRequestURI();
 		model.addAttribute("cuidado", 

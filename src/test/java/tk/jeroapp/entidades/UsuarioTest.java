@@ -23,7 +23,7 @@ class UsuarioTest {
 		LogManager.getLogger(this.getClass())
         .info("--> probando el apellido");
 		usuario.setApellidos("web");
-		assertEquals("web".toUpperCase(), usuario.getApellidos(),"Se esparaba ' WEB ''");
+		assertEquals("web", usuario.getApellidos(),"Se esparaba ' web ''");
 		
 		LogManager.getLogger(this.getClass())
 		.info("--> probando el Alias");

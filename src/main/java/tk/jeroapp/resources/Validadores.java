@@ -4,7 +4,7 @@ import java.time.DateTimeException;
 import java.time.LocalDateTime;
 import java.util.Collection;
 
-import org.slf4j.Logger;
+
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -19,17 +19,15 @@ import org.springframework.security.core.context.SecurityContextHolder;
  */
 public class Validadores {
 	
-	/**
-	 * Obj para poder hacer entradas en el log
-	 */
-	private final Logger log=org.slf4j.LoggerFactory.getLogger(getClass());
-	
 	 /**
 	  * Método para validar si el rol del usuario es uno en concreto
 	  * @param rol nombre del rol
 	  * @return true si contiene el rol false en caso contrario
 	  */
 	 public static boolean rol(String rol) {
+		 if (rol==null) {
+				throw new RuntimeException("No se puede validar el role es nulo");
+			}
 		 boolean bandera=false;
 		 
 		 SecurityContext context=SecurityContextHolder.getContext();
@@ -48,18 +46,23 @@ public class Validadores {
 	 }
 	
 	/**
-	 * Revisa que solo tenga letras, nada de números ni caracteres especiales, acepta la ñ los acentos á é í ó ú
+	 * Revisa que solo tenga letras, nada de números ni caracteres especiales,ç
+	 * acepta la ñ los acentos á é í ó ú  Üü, también admite espacios en blanco
 	 * @param cadena
 	 * @return true si tiene números o cualquier caracter especia como [+,´,¡]
 	 */
 	public static boolean revisarSoloLetrasDelEspannol(String cadena) {
 
+		if (cadena==null) {
+			throw new RuntimeException("No se puede validar la cadena al se nula");
+		}
+		
 		boolean bandera = false;
 		char[] array = cadena.toCharArray();
 
 		for (char c : array) {
 			//Si no es letra rompe el bucle y devuelve falso
-			if (!Character.isLetter(c)) {
+			if (!Character.isLetter(c) && c!=' ') {
 				bandera = true;
 				break;
 			}
@@ -73,6 +76,9 @@ public class Validadores {
 	 * @return true si tiene letras o cualquier caracter especia como [+,´,¡]
 	 */
 	public static boolean revisarSoloDigitosDelEspannol(String cadena) {
+		if (cadena==null) {
+			throw new RuntimeException("No se puede validar los dígitos son nulos");
+		}
 		
 		boolean bandera = false;
 		char[] array = cadena.toCharArray();
@@ -95,6 +101,10 @@ public class Validadores {
 	 */
 	public static boolean revisarSoloDigitosYLetras(String cadena) {
 		
+		if (cadena==null) {
+			throw new RuntimeException("No se puede validar la cadena al se nula");
+		}
+		
 		boolean bandera = false;
 		char[] array = cadena.toCharArray();
 		
@@ -104,6 +114,8 @@ public class Validadores {
 			if (Character.isDigit(c) ) {
 				continue;
 			}else if(Character.isLetter(c)){
+				continue;
+			}else if(c==' '){
 				continue;
 			}else {
 				bandera = true;
@@ -122,6 +134,9 @@ public class Validadores {
 	 * @param usu usuario a validar
 	 */
 	public static String revisarEspaciosEnBlancoAlPrincipioYAlfinal(String cadena) {
+		if (cadena==null) {
+			throw new RuntimeException("No se puede validar la cadena al se nula");
+		}
 		//Revisamos que no termine en espacios en blanco
 		boolean bandera=false; //si se encuentra un caracter diferente a espacio ya no se válida más
 		String apoyo="";
@@ -173,6 +188,7 @@ public class Validadores {
 			return error;
 		}
 		// Región 7
+		@SuppressWarnings("unused")
 		LocalDateTime fechasNueva = null;
 		try {
 			// Si hay errores de fechas como el 30 de Febrero se comprueba
