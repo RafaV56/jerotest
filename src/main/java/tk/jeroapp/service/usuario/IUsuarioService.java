@@ -15,4 +15,6 @@ public interface IUsuarioService {
 	public void editar(Usuario usuario);
 	
 	public void borrar(Long id);
+	
+	public Usuario buscarUnoAlias(String alias);
 }

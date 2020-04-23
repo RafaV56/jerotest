@@ -54,4 +54,9 @@ public class UsuarioServiceImpl implements IUsuarioService {
 
 	}
 
+	public Usuario buscarUnoAlias(String alias) {
+		
+		return usuarioDao.findByAlias(alias);
+	}
+
 }

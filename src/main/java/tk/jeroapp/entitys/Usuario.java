@@ -23,7 +23,7 @@ public class Usuario implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@Column(unique = true, length = 30)
+	@Column(unique = true, length = 20)
 	private String alias;
 
 	@Column(length = 60, name = "nombre")

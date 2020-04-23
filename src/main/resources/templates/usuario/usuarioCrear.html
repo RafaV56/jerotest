@@ -25,6 +25,7 @@
       <div th:if="${#fields.hasErrors('nombreDeUsuario')}" class="mt-1">
 			<small id="nombreDeUsuarioError" th:errors="*{nombreDeUsuario}" class="badge badge-warning"></small>
 	 	</div>
+	 		<div id="nombreDeUsuarioJS"></div>
     </div>
     <!------------------------------------------------------------------------------------------------ -->
     <!-- Campo Apellido -------------------------------------------------------------------------------- -->
@@ -37,7 +38,9 @@
       <div th:if="${#fields.hasErrors('apellidos')}" class="mt-1">
 			<small id="apellidosError" th:errors="*{apellidos}" class="badge badge-warning"></small>
 	 	</div>
+	 	<div id="apellidosJS"></div>
     </div>
+    	
     <!------------------------------------------------------------------------------------------------ -->
     
 </div> <!-- Fin del row -->
@@ -47,13 +50,14 @@
 	<!-- Campo Alias-------------------------------------------------------------------------------- -->
     <div class="form-group col-md-6">
       <strong><label for="alias" class="text-dark" th:text="#{text.usuario.alias}+' *'">Alias*</label></strong>
-      <input type="text" class="form-control" id="alias" th:field="*{alias}"aria-describedby="alias" maxlength="60" required="required">
+      <input type="text" class="form-control" id="alias" th:field="*{alias}"aria-describedby="alias" maxlength="20" required="required">
       
       <!-- Errores en nombre -->
       
       <div th:if="${#fields.hasErrors('alias')}" class="mt-1">
 			<small id="aliasError" th:errors="*{alias}" class="badge badge-warning"></small>
 	 	</div>
+	 		<div id="aliasJS"></div>
     </div>
     <!------------------------------------------------------------------------------------------------ -->
     <!-- Campo Passoword -------------------------------------------------------------------------------- -->
@@ -66,6 +70,7 @@
       <div th:if="${#fields.hasErrors('password')}" class="mt-1">
 			<small id="passwordError" th:errors="*{password}" class="badge badge-warning"></small>
 	 	</div>
+	 	<div id="passwordJS"></div>
     </div>
     <!------------------------------------------------------------------------------------------------ -->
 </div> <!-- Fin del row -->
@@ -88,20 +93,23 @@
     <!-- Campo Repetir Passoword -------------------------------------------------------------------------------- -->
     <div class="form-group col-md-6">
       <strong><label for="repetirPassword" class="text-dark" th:text="#{text.usuario.repetirpassword}+' *'">Repetir la Contraseña*</label></strong>
-      <input type="text" class="form-control" id="repetirPassword" name="repetirPassword" aria-describedby="repetirPassword" maxlength="60" required="required">
+      <input type="password" class="form-control" id="repetirPassword" name="repetirPassword" aria-describedby="repetirPassword" maxlength="60" required="required">
       
       <!-- Errores en password -->
-      
+	
       <div th:if="${#fields.hasErrors('password')}" class="mt-1">
 			<small id="passwordError" th:errors="*{password}" class="badge badge-warning"></small>
 	 	</div>
+	 	<!-- =========================================Errores en el formualrio================================== -->
+	
+		<div id="repetido"></div>
     </div>
     <!------------------------------------------------------------------------------------------------ -->
     
   </div> <!-- Fin del row -->  
 
 
-		<button type="submit" class="btn btn-primary" th:text="#{crear}">Crear</button>
+		<button type="submit" class="btn btn-primary" id="enviar" th:text="#{crear}">Crear</button>
 </form>
 					
 	</div><!-- card body -->

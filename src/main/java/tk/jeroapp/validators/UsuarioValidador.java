@@ -54,7 +54,7 @@ public class UsuarioValidador implements Validator {
 			// la info esta en el messages.properties que se crea y no hay que configurarlo
 			errors.rejectValue("alias", "size.usuario.alias");
 		}
-		if (Validadores.revisarSoloLetrasDelEspannol(usuario.getAlias())) {
+		if (Validadores.revisarSoloDigitosYLetras(usuario.getAlias())) {
 			// Informamos que no se puede tener números ni caracrteres especiales
 			errors.rejectValue("alias", "letras.usuario.alias");
 		}

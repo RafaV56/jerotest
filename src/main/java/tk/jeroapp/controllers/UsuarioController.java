@@ -136,6 +136,11 @@ public class UsuarioController {
 	@PostMapping("/crearUsuario")
 	public String crearUsaurioPost(@Valid Usuario usuario, BindingResult status, RedirectAttributes flash, Model model,
 			SessionStatus sesion, Locale locale) {
+		//validamos el alias no sea repetido;
+		Usuario nuevoalias=usuarioServiceImpl.buscarUnoAlias(usuario.getAlias());
+		if (nuevoalias!=null) {
+			status.rejectValue("alias", "error.usuario.alias.repetido.dos");
+		}
 		 //Validamos el restos de campos
 		 usuarioValidador.validate(usuario,status);
 		 if (status.hasErrors()) {

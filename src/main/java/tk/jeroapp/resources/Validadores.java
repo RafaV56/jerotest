@@ -110,12 +110,18 @@ public class Validadores {
 		
 		for (char c : array) {
 			
-			//Si no es letra ni dígito
+			//Si no es letra, digito, espacio, rayaBaja, punto, guion
 			if (Character.isDigit(c) ) {
 				continue;
 			}else if(Character.isLetter(c)){
 				continue;
 			}else if(c==' '){
+				continue;
+			}else if(c=='_'){
+				continue;
+			}else if(c=='.'){
+				continue;
+			}else if(c=='-'){
 				continue;
 			}else {
 				bandera = true;

@@ -61,15 +61,12 @@ public class ManejadorDeErrores {
 	 */
 	@ExceptionHandler({DataIntegrityViolationException.class})
 	public String usuarioAliasRepetido(HttpServletRequest request,Exception ex,Model model,Locale locale){
-		//para el botón 
-		String volver=mensajesIdioma.getMessage("text.volver", null, locale);
 		//Ultima url que visitó el usuario para insertarla en el botón
-		String url=request.getRequestURI();
+//		String sql="could not execute statement; SQL [n/a]; nested exception is org.hibernate.exception.DataException: could not execute statement";
+//		System.out.println("Error sql= "+ex.getMessage().equals(sql));
+//		System.out.println("Erroes data:----->  "+ex.getMessage());
 		model.addAttribute("cuidado", 
-				mensajesIdioma.getMessage("error.usuario.alias.repetido", 
-				null,
-				locale)
-				.concat(" <a href='"+url+"'\" class=\"card-link text-dark btn btn-warning btn-sm\">"+volver+"</a>"));
+				mensajesIdioma.getMessage("error.usuario.alias.repetido", null,	locale));
 		model.addAttribute("status",409);
 		return "error";
 	}

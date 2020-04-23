@@ -14,16 +14,16 @@ class ValidadoresTest {
         .info("========================= Validadores test =============================");
 		
 		LogManager.getLogger(this.getClass())
-        .info("---->Viladando solo letras y dígitos");
+        .info("---->Validando contiene letras, dígitos, guion bajo, punto, guion y espacios");
 		
 		boolean bandera=true;
 		String cadena="";
 		int digito=0;
 		
-		//=======Validando solo contiene letras y espacios en blanco=================================);
-		cadena="hola NDAD 3333";
+		//=======Validando solo contiene letras, dígitos, guion bajo, punto, guion y espacios=================================);
+		cadena="hola NDAD 3333_.-";
 		bandera = Validadores.revisarSoloDigitosYLetras(cadena);
-		assertFalse(bandera,"Se espera false al ser solo letras y digitos y espacios en blanco");
+		assertFalse(bandera,"Se espera false al ser solo letras, dígitos, guion bajo, punto, guion y espacios");
 		
 		cadena="´";
 		bandera = Validadores.revisarSoloDigitosYLetras(cadena);
